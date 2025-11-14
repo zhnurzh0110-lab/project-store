@@ -1,0 +1,175 @@
+:root{
+  --bg-dark:#0f0f10;
+  --panel-dark:#121214;
+  --muted:#bfc3c8;
+  --accent:#b8860b; /* gold */
+  --card-radius:12px;
+  --transition: 300ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* Theme binding */
+body[data-theme="dark"]{
+  background: linear-gradient(180deg,var(--bg-dark), #070707);
+  color: #e9e9e9;
+}
+body[data-theme="light"]{
+  background: #f5f7fa;
+  color: #222;
+}
+
+/* navbar / cards */
+.nav-shadow{ box-shadow: 0 8px 30px rgba(0,0,0,0.45); }
+.bg-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius: var(--card-radius);
+}
+
+/* Gallery card look (dark modern) */
+.card .card-img-top{
+  height: 240px;
+  object-fit: cover;
+  border-top-left-radius: var(--card-radius);
+  border-top-right-radius: var(--card-radius);
+}
+.card { border-radius: var(--card-radius); transition: transform var(--transition), box-shadow var(--transition); }
+.card:hover{ transform: translateY(-8px); box-shadow: 0 18px 40px rgba(0,0,0,0.6); }
+
+/* Animations for add/remove */
+.anim-flip { animation: flipIn .45s both; }
+@keyframes flipIn {
+  from{ transform: rotateX(-90deg); opacity:0; }
+  to { transform: rotateX(0deg); opacity:1; }
+}
+
+/* smooth transition when switching theme */
+:root * { transition: background-color 300ms ease, color 300ms ease; }
+
+/* small utilities */
+.highlight { background: linear-gradient(90deg, rgba(184,134,11,0.14), transparent); padding: 0 6px; border-radius:6px; }
+
+
+/* Base style */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212;
+  color: #f5f5f5;
+  transition: all 0.4s ease;
+}
+
+/* Header and menu */
+header {
+  background-color: #1f1f1f;
+  padding: 1rem 2rem;
+  color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  border: none;
+  background: #f0c040;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #d8a030;
+}
+
+/* Light Mode */
+body.light-mode {
+  background-color: #ffffff;
+  color: #111;
+}
+
+body.light-mode header {
+  background-color: #f9f9f9;
+  color: #111;
+}
+
+body.light-mode .toggle-btn {
+  background: #333;
+  color: #fff;
+}
+
+/* Media queries for responsive text color */
+@media (max-width: 768px) {
+  body {
+    color: #ddd; /* lighter text for dark mode on small screens */
+  }
+  body.light-mode {
+    color: #333; /* darker text for light mode on mobile */
+  }
+}
+
+@media (min-width: 769px) {
+  body {
+    color: #fafafa; /* default text for large dark screens */
+  }
+  body.light-mode {
+    color: #222; /* default text for light large screens */
+  }
+}
+
+/* Example content styling */
+.main-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.product-card {
+  background: #1c1c1c;
+  color: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+body.light-mode .product-card {
+  background: #f5f5f5;
+  color: #000;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+
+/* Contact section text */
+.contact-header, .contact-subtext {
+  transition: color 0.4s ease;
+}
+
+/* Dark mode */
+body[data-theme="dark"] .contact-header,
+body[data-theme="dark"] .contact-subtext {
+  color: #f5f5f5;
+}
+
+/* Light mode */
+body[data-theme="light"] .contact-header,
+body[data-theme="light"] .contact-subtext {
+  color: #222222;
+}
+
+/* Media query adjustments */
+@media (max-width: 768px) {
+  body[data-theme="dark"] .contact-header,
+  body[data-theme="dark"] .contact-subtext {
+    color: #ddd;
+  }
+  body[data-theme="light"] .contact-header,
+  body[data-theme="light"] .contact-subtext {
+    color: #333;
+  }
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Контакты — FashionStore</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body data-theme="dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-shadow">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">FashionStore</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a href="index.html" class="nav-link">Главная</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link active">Контакты</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+   <div class="card p-4 bg-card">
+  <h3 class="contact-header">Связаться с нами</h3>
+  <p class="contact-subtext text-muted small">
+    Заполните форму. Пароль: минимум 8 символов, заглавная, цифра, спецсимвол.
+  </p>
+
+
+        <form id="contactForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label small">Имя</label>
+            <input id="conName" class="form-control form-control-sm" required />
+            <div class="invalid-feedback">Введите имя.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small">Email</label>
+            <input id="conEmail" type="email" class="form-control form-control-sm" required />
+            <div class="invalid-feedback">Неверный email.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small">Пароль</label>
+            <input id="conPassword" type="password" class="form-control form-control-sm" required />
+            <div class="form-text small text-muted">Минимум 8 символов, заглавная буква, цифра, спецсимвол</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small">Подтвердите пароль</label>
+            <input id="conPassword2" type="password" class="form-control form-control-sm" required />
+            <div class="invalid-feedback">Пароли не совпадают.</div>
+          </div>
+
+          <div id="contactErrors" class="alert alert-danger d-none"></div>
+          <div id="contactSuccess" class="alert alert-success d-none">Спасибо! Сообщение отправлено (демо).</div>
+
+          <div class="d-flex gap-2">
+            <button id="btnContactSend" class="btn btn-success btn-sm" type="submit">Отправить</button>
+            <button id="btnContactReset" type="button" class="btn btn-link btn-sm">Сбросить</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="py-3 text-center text-muted small">© <span id="year2"></span> FashionStore</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

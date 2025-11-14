@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FashionStore — Dark Modern (Demo)</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- GLightbox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"/>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body data-theme="dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-shadow">
+  <div class="container">
+    <a class="navbar-brand" href="#">FashionStore</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#catalog">Каталог</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
+        <li class="nav-item ms-3">
+          <div class="form-check form-switch mt-1">
+            <input class="form-check-input" type="checkbox" id="themeToggle">
+            <label class="form-check-label small text-muted" for="themeToggle">Light</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="py-4 bg-dark text-light">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div>
+      <h1 class="h4 mb-1">FashionStore — Dark Modern</h1>
+      <p class="mb-0 text-muted small">Demo: FakeStoreAPI → localStorage (CRUD) • Lightbox • Animations</p>
+    </div>
+    <div class="d-flex gap-2">
+      <button id="btnAddDemo" class="btn btn-outline-light btn-sm">Add demo</button>
+      <button id="btnReloadAPI" class="btn btn-outline-light btn-sm">Reload from API</button>
+    </div>
+  </div>
+</header>
+
+<main class="container my-4">
+  <div class="row g-3">
+    <aside class="col-12 col-lg-4">
+      <div class="card p-3 bg-card">
+        <h5 class="mb-3">Добавить / Редактировать</h5>
+        <form id="productForm">
+          <input type="hidden" id="productId" />
+          <div class="mb-2">
+            <label class="form-label small text-muted">Название</label>
+            <input id="title" class="form-control form-control-sm" required />
+          </div>
+          <div class="mb-2">
+            <label class="form-label small text-muted">Цена</label>
+            <input id="price" class="form-control form-control-sm" type="number" step="0.01" required />
+          </div>
+          <div class="mb-2">
+            <label class="form-label small text-muted">URL thumb</label>
+            <input id="thumb" class="form-control form-control-sm" placeholder="https://..." required />
+          </div>
+          <div class="mb-2">
+            <label class="form-label small text-muted">URL large</label>
+            <input id="large" class="form-control form-control-sm" placeholder="https://..." required />
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-sm" type="submit" id="btnSave">Save</button>
+            <button class="btn btn-outline-secondary btn-sm" type="button" id="btnReset">Reset</button>
+            <button class="btn btn-danger btn-sm ms-auto" id="btnClearAll" type="button">Clear all</button>
+          </div>
+          <small class="text-muted d-block mt-2">Data: FakeStoreAPI → localStorage (edits persist).</small>
+        </form>
+      </div>
+
+      <div class="card mt-3 p-3 bg-card">
+        <h6 class="mb-2">Search</h6>
+        <div class="input-group">
+          <span class="input-group-text">🔎</span>
+          <input id="searchInput" class="form-control form-control-sm" placeholder="Live search..." />
+          <button id="btnClearSearch" class="btn btn-outline-secondary btn-sm">Clear</button>
+        </div>
+        <div class="mt-2 small text-muted" id="itemsCount">0</div>
+      </div>
+    </aside>
+
+    <section id="catalog" class="col-12 col-lg-8">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h4 class="mb-0">Каталог</h4>
+        <div class="text-muted small" id="apiStatus">API: —</div>
+      </div>
+
+      <div id="gallery" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+    </section>
+  </div>
+
+  <section id="about" class="mt-4">
+    <div class="card p-3 bg-card">
+      <h5>О проекте</h5>
+      <p class="mb-0 small text-muted">Demo project using FakeStoreAPI (https://fakestoreapi.com). Edits stored in localStorage. Theme: Dark Modern with smooth toggle.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="py-3 text-center text-muted small">
+  © <span id="year"></span> FashionStore — demo
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
