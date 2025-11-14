@@ -29,7 +29,7 @@ Brief description of the project and its purpose.
 3. (Optional) Run `npx serve` for local server
 
 ## Deployment
-Deployed to GitHub Pages : 
+Deployed to GitHub Pages :  https://fashion-store.github.io/final-exam
 
 ## Notes
 - All assets are included in `/assets/`
